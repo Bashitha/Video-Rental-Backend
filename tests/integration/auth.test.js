@@ -10,8 +10,8 @@ describe("auth middleware", () => {
     token = new User().generateAuthToken();
   });
   afterEach(async () => {
+    await server.close();
     await Genre.remove({});
-    server.close();
   });
   const exec = () => {
     return request(server)
